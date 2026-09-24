@@ -57,9 +57,8 @@ Open `http://localhost:8080` in any web browser.
 
 ## 🌐 Live Website & GitHub Pages
 
-- **Live URL (Default)**: [https://deepakrana50397-sketch.github.io/invite/](https://deepakrana50397-sketch.github.io/invite/)
-- **Custom Name URL (`deepaksapna`)**: [https://deepakrana50397-sketch.github.io/deepaksapna/](https://deepakrana50397-sketch.github.io/deepaksapna/)
-  *(To get this URL, rename the repository to `deepaksapna` in GitHub Repository Settings)*
+- **Live URL**: [https://deepakrana50397-sketch.github.io/deepksapna/](https://deepakrana50397-sketch.github.io/deepksapna/)
+- **Repository**: [https://github.com/deepakrana50397-sketch/deepksapna](https://github.com/deepakrana50397-sketch/deepksapna)
 
 ---
 
