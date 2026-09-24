@@ -637,28 +637,113 @@ function initParticles() {
 }
 
 // ==========================================================================
-// 9. SCROLL DIRECTIONAL REVEAL ANIMATIONS (INTERSECTION OBSERVER)
+// 9. SCROLL DIRECTIONAL & TEXT UNMASK REVEAL ANIMATIONS
 // ==========================================================================
 function initScrollAnimations() {
+  initTextReveal();
+
   const revealClasses = [
     ".reveal-fade-up",
     ".reveal-slide-left",
     ".reveal-slide-right",
-    ".reveal-scale-up"
+    ".reveal-scale-up",
+    ".clip-text-reveal",
+    ".text-unmask-group",
+    ".section-intro-header",
+    ".parchment-card",
+    ".event-card",
+    ".venue-item-box",
+    ".rsvp-box",
+    ".blessings-box",
+    ".footer-section"
   ];
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-revealed");
+        
+        // Also trigger any nested unmask elements
+        entry.target.querySelectorAll(".text-unmask-word, .clip-text-reveal").forEach(el => {
+          el.classList.add("is-revealed");
+        });
       }
     });
   }, {
-    threshold: 0.12,
+    threshold: 0.1,
     rootMargin: "0px 0px -40px 0px"
   });
 
   document.querySelectorAll(revealClasses.join(", ")).forEach(el => observer.observe(el));
+
+  // Trigger Hero unmask reveal on page entry
+  setTimeout(() => {
+    const hero = document.getElementById("heroSection");
+    if (hero) {
+      hero.classList.add("is-revealed");
+      hero.querySelectorAll(".text-unmask-word, .clip-text-reveal").forEach(el => {
+        el.classList.add("is-revealed");
+      });
+    }
+  }, 120);
+}
+
+// Graceful Text Unmasking Motion Effect
+function initTextReveal() {
+  // 1. Unmask Hero Invocations & Couple Title
+  unmaskWordsInElement(".prologue-quote", 0.08);
+  unmaskWordsInElement(".hero-sacred-subtitle", 0.08);
+
+  // 2. Unmask Section Titles and Subtitles
+  document.querySelectorAll(".section-title, .section-subtitle, .section-pretag").forEach(el => {
+    unmaskWordsInElement(el, 0.06);
+  });
+
+  // 3. Unmask Love Story Verses (Line by line graceful slide-up)
+  document.querySelectorAll(".story-body-poem p").forEach((p, pIdx) => {
+    const lines = p.innerHTML.split(/<br\s*\/?>/i);
+    p.innerHTML = lines.map((line, lIdx) => {
+      const delay = (pIdx * 0.18 + lIdx * 0.09).toFixed(2);
+      return `<span class="clip-text-reveal" style="--unmask-delay: ${delay}s; display: block;">${line.trim()}</span>`;
+    }).join("");
+  });
+
+  unmaskWordsInElement(".story-pretitle", 0.08);
+  unmaskWordsInElement(".story-main-verse", 0.06);
+  unmaskWordsInElement(".story-footnote", 0.06);
+
+  // 4. Unmask Countdown Title
+  unmaskWordsInElement(".countdown-title", 0.06);
+
+  // 5. Unmask Event Titles & Auspicious Subtitles
+  document.querySelectorAll(".event-name, .event-theme-sub").forEach(el => {
+    unmaskWordsInElement(el, 0.05);
+  });
+
+  // 6. Unmask RSVP & Blessings Headers
+  unmaskWordsInElement(".rsvp-title", 0.08);
+  unmaskWordsInElement(".rsvp-subtitle", 0.05);
+  unmaskWordsInElement(".footer-shubh", 0.1);
+  unmaskWordsInElement(".footer-family-text", 0.06);
+}
+
+// Helper: Wraps words in clipping masks with staggered transition delays
+function unmaskWordsInElement(target, staggerDelay = 0.06) {
+  const elements = typeof target === "string" ? document.querySelectorAll(target) : [target];
+
+  elements.forEach(el => {
+    if (!el || el.dataset.unmaskInitialized) return;
+    el.dataset.unmaskInitialized = "true";
+
+    // Skip if contains complex HTML elements, preserve text nodes
+    const words = el.innerText.trim().split(/\s+/);
+    if (words.length === 0 || (words.length === 1 && words[0] === "")) return;
+
+    el.innerHTML = words.map((word, idx) => {
+      const delay = (idx * staggerDelay).toFixed(2);
+      return `<span class="text-unmask-wrap"><span class="text-unmask-word" style="--unmask-delay: ${delay}s">${word}</span></span>`;
+    }).join("&nbsp;");
+  });
 }
 
 // ==========================================================================

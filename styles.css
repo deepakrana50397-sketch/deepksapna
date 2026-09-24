@@ -353,7 +353,7 @@ body {
 }
 
 /* ==========================================================================
-   1. HERO SECTION - LIVE CINEMATIC MOTION
+   1. HERO SECTION - CANVA LUXURY ROYAL CARD EDITION
    ========================================================================== */
 .hero-section {
   position: relative;
@@ -361,9 +361,9 @@ body {
   height: 100dvh;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 36px 24px 56px;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
   color: #fff;
   text-align: center;
   overflow: hidden;
@@ -389,138 +389,253 @@ body {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    circle at 50% 45%,
-    rgba(25, 10, 5, 0.25) 0%,
-    rgba(25, 10, 5, 0.6) 60%,
-    rgba(25, 10, 5, 0.9) 100%
+    circle at 50% 50%,
+    rgba(20, 8, 4, 0.35) 0%,
+    rgba(20, 8, 4, 0.65) 60%,
+    rgba(15, 5, 2, 0.88) 100%
   );
   z-index: 1;
 }
 
-.hero-content {
+/* Luxury Canva Invitation Card Frame */
+.hero-card-frame {
   position: relative;
-  z-index: 3;
+  z-index: 4;
+  width: 100%;
+  max-width: 540px;
+  margin: auto;
+  background: radial-gradient(ellipse at center, rgba(38, 16, 9, 0.62) 0%, rgba(20, 8, 4, 0.78) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(212, 175, 55, 0.65);
+  border-radius: 28px;
+  padding: 22px 18px;
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.7), inset 0 0 35px rgba(212, 175, 55, 0.15);
+  animation: zoomIn 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  .hero-card-frame {
+    max-width: 600px;
+    padding: 28px 24px;
+    border-radius: 32px;
+  }
+}
+
+.hero-card-inner {
+  border: 1px dashed rgba(212, 175, 55, 0.45);
+  border-radius: 20px;
+  padding: 24px 16px 26px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  max-width: 900px;
-  margin: 0 auto;
+  align-items: center;
   justify-content: space-between;
 }
 
+@media (min-width: 768px) {
+  .hero-card-inner {
+    padding: 30px 24px 32px;
+  }
+}
+
 .hero-header {
-  animation: fadeInDown 1.2s ease-out;
+  animation: fadeInDown 1.1s ease-out;
+  margin-bottom: 8px;
 }
 
 .om-symbol {
   font-family: var(--font-hindi);
-  font-size: 1.85rem;
-  color: var(--gold-light);
-  text-shadow: 0 0 15px rgba(212, 175, 55, 0.9);
-  letter-spacing: 3px;
+  font-size: 1.65rem;
+  color: #FCF6BA;
+  text-shadow: 0 0 16px rgba(212, 175, 55, 0.9);
+  letter-spacing: 2.5px;
+  line-height: 1.2;
 }
 
 .sub-invocation {
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   letter-spacing: 4px;
   color: var(--gold-light);
-  margin-top: 6px;
+  margin-top: 4px;
   opacity: 0.95;
   text-transform: uppercase;
 }
 
 .kashi-badge {
   font-family: var(--font-hindi);
-  font-size: 0.95rem;
-  color: var(--gold-light);
+  font-size: 0.92rem;
+  color: #FFECA8;
   display: inline-block;
-  margin-top: 8px;
-  border-bottom: 1.5px solid rgba(212, 175, 55, 0.6);
-  padding-bottom: 3px;
+  margin-top: 6px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.55);
+  padding-bottom: 2px;
   letter-spacing: 1px;
 }
 
 .hero-middle {
-  margin: auto 0;
-  animation: zoomIn 1.3s ease-out;
+  margin: 6px 0;
+  width: 100%;
 }
 
 .prologue-quote {
   font-family: var(--font-heading);
-  font-size: 0.92rem;
-  letter-spacing: 3.5px;
-  color: var(--gold-light);
+  font-size: clamp(0.72rem, 1.1vw, 0.82rem);
+  letter-spacing: 2px;
+  color: #FCF6BA;
   text-transform: uppercase;
-  margin-bottom: 18px;
-  line-height: 1.7;
+  margin: 12px 0 10px;
+  line-height: 1.6;
   opacity: 0.95;
 }
 
-.lotus-divider {
-  width: 54px;
-  height: auto;
-  margin: 0 auto 20px;
-  filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.85));
+/* Lotus Flourish Divider */
+.lotus-divider-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 6px auto 12px;
 }
 
+.lotus-line {
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+.lotus-divider {
+  width: 46px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.85));
+}
+
+/* Center Couple Names */
 .couple-title {
-  margin: 12px 0;
+  margin: 8px 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .couple-name {
   font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 6.5vw, 5.4rem);
-  font-weight: 700;
-  letter-spacing: 4px;
+  font-size: clamp(3.2rem, 7vw, 4.8rem);
+  font-weight: 800;
+  letter-spacing: 6px;
   text-transform: uppercase;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+  color: #FFF2B2;
+  text-shadow: 0 0 25px rgba(212, 175, 55, 0.8), 0 4px 30px rgba(0, 0, 0, 0.95);
   line-height: 1.05;
+  margin: 0;
+  display: block;
 }
 
 .couple-ampersand {
   font-family: var(--font-script);
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
-  color: #fff;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: #FFFFFF;
   display: block;
-  margin: -8px 0;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.9);
+  margin: -6px 0;
+  text-shadow: 0 0 18px rgba(212, 175, 55, 0.95), 0 2px 10px rgba(0,0,0,0.85);
   font-weight: 400;
 }
 
 .hero-sacred-subtitle {
   font-family: var(--font-heading);
-  font-size: 0.88rem;
-  letter-spacing: 4px;
+  font-size: 0.74rem;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold-light);
-  margin-top: 18px;
+  color: #F8ECD2;
+  margin: 4px 0 10px;
   opacity: 0.95;
 }
 
+.hero-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFE69B;
+  background: rgba(90, 16, 28, 0.65);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-date-badge .date-sep {
+  color: var(--gold-primary);
+  font-size: 0.8rem;
+}
+
+/* Royal Scalloped Button (Canva Style) */
 .hero-footer {
-  animation: fadeInUp 1.2s ease-out;
+  margin-top: 14px;
+  animation: fadeInUp 1.1s ease-out;
 }
 
 .tap-enter-btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  background: var(--maroon-royal);
-  color: var(--gold-light);
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #6B1D2A 0%, #460912 100%);
+  color: #FCF6BA;
   font-family: var(--font-sans);
-  font-size: 0.92rem;
+  font-size: 0.82rem;
+  font-weight: 700;
   letter-spacing: 2.5px;
-  font-weight: 600;
   text-transform: uppercase;
-  padding: 16px 38px;
+  padding: 13px 32px;
   border-radius: var(--radius-pill);
   border: 1.5px solid var(--gold-primary);
   cursor: pointer;
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5), inset 0 0 12px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.4);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
+}
+
+.tap-enter-btn .btn-lotus-icon {
+  width: 16px;
+  height: 16px;
+  fill: #D4AF37;
+  flex-shrink: 0;
+}
+
+.tap-enter-btn .btn-star-icon {
+  width: 14px;
+  height: 14px;
+  fill: #FCF6BA;
+  flex-shrink: 0;
+}
+
+.tap-enter-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: rotate(30deg);
+  animation: shimmerBtn 3.5s infinite;
+}
+
+.tap-enter-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(212, 175, 55, 0.65);
+  background: linear-gradient(135deg, #8B1E2E 0%, #5A101C 100%);
 }
 
 .tap-enter-btn::after {
@@ -1625,6 +1740,90 @@ body {
 .is-revealed {
   opacity: 1 !important;
   transform: translate(0, 0) scale(1) !important;
+}
+
+/* ==========================================================================
+   GRACEFUL TEXT UNMASK REVEAL SYSTEM (MOTION GRAPHICS)
+   ========================================================================== */
+.text-unmask-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+
+.text-unmask-word {
+  display: inline-block;
+  transform: translateY(125%) rotateX(-20deg);
+  opacity: 0;
+  filter: blur(5px);
+  transition: transform 0.88s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.75s ease-out;
+  transition-delay: var(--unmask-delay, 0s);
+  will-change: transform, opacity, filter;
+}
+
+.is-revealed .text-unmask-word,
+.text-unmask-word.is-revealed {
+  transform: translateY(0%) rotateX(0deg);
+  opacity: 1;
+  filter: blur(0px);
+}
+
+/* Clip-path Line Unmasking for Titles & Invocations */
+.clip-text-reveal {
+  display: inline-block;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  transform: translateY(30px);
+  opacity: 0;
+  filter: blur(3px);
+  transition: clip-path 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.8s ease-out,
+              filter 0.8s ease-out;
+  transition-delay: var(--unmask-delay, 0s);
+  will-change: clip-path, transform, opacity;
+}
+
+.is-revealed .clip-text-reveal,
+.clip-text-reveal.is-revealed {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transform: translateY(0);
+  opacity: 1;
+  filter: blur(0px);
+}
+
+/* Golden Unmask Shimmer Wipe */
+.gold-unmask-wipe {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.gold-unmask-wipe::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gold-shimmer);
+  transform: translateX(-101%);
+  transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.is-revealed.gold-unmask-wipe::after,
+.is-revealed .gold-unmask-wipe::after {
+  animation: goldWipePass 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes goldWipePass {
+  0% { transform: translateX(-101%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(101%); }
 }
 
 /* Keyframes */
