@@ -55,6 +55,12 @@ Open `http://localhost:8080` in any web browser.
 - **Vanilla JavaScript**: Intersection Observer API, Web Audio API, Canvas 2D particle engine, and dynamic URL generators
 - **Google Fonts**: *Playfair Display*, *Great Vibes*, *Tiro Devanagari Hindi*, *Cinzel Decorative*, and *Outfit*
 
+## 🌐 Live Website & GitHub Pages
+
+- **Live URL (Default)**: [https://deepakrana50397-sketch.github.io/invite/](https://deepakrana50397-sketch.github.io/invite/)
+- **Custom Name URL (`deepaksapna`)**: [https://deepakrana50397-sketch.github.io/deepaksapna/](https://deepakrana50397-sketch.github.io/deepaksapna/)
+  *(To get this URL, rename the repository to `deepaksapna` in GitHub Repository Settings)*
+
 ---
 
 *॥ शुभ विवाह ॥ With the divine blessings of Har Har Mahadev.*
